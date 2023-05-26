@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher
 from loguru import logger
 
 from mybot.config import settings
-from mybot.handlers import client
+from mybot.handlers import client, errors
 from mybot.services.commands import set_commands
 
 
@@ -15,7 +15,7 @@ async def main():
     dp = Dispatcher()
 
     await set_commands(bot)
-    dp.include_routers(client.router)
+    dp.include_routers(client.router, errors.router)
 
     await dp.start_polling(bot, close_bot_session=True, allowed_updates=dp.resolve_used_update_types())
 
