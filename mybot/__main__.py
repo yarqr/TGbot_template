@@ -9,7 +9,7 @@ from mybot.services.commands import set_commands
 
 
 async def main():
-    logger.info('Bot started')
+    logger.success('Bot started')
 
     bot = Bot(settings.BOT_TOKEN)
     dp = Dispatcher()
